@@ -27,7 +27,7 @@ const HelplineNumbers = () => {
       icon: "🔒"
     },
     {
-      title: "Student Counseling Cell",
+      title: "Student Well being Cell",
       number: "",
       description: "Psychological support and counseling services",
       icon: "🧠"
@@ -36,13 +36,13 @@ const HelplineNumbers = () => {
 
   return (
   <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-  <h2 className="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-red-600 pb-2">
+  <h2 className="text-2xl font-bold text-gray-800 mb-6  border-red-600 pb-2">
     Emergency Helpline Numbers
   </h2>
 
   <div className="grid md:grid-cols-3 gap-8">
     {/* Left Column - Emergency Contacts */}
-    <div className="bg-gray-50  p-6 border-l-4 border-red-600">
+    <div className="bg-gray-50  p-6 border-t-4 border-red-600">
       <h3 className="text-xl font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-200">Emergency Contacts</h3>
       <div className="space-y-6">
         {helplineData.slice(0, 3).map((item, index) => (
@@ -61,7 +61,7 @@ const HelplineNumbers = () => {
     </div>
 
     {/* Middle Column - Support Services */}
-    <div className="bg-gray-50  p-6 border-l-4 border-orange-600">
+    <div className="bg-gray-50  p-6 border-t-4 border-orange-600">
       <h3 className="text-xl font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-200">Support Services</h3>
       <div className="space-y-6">
         {helplineData.slice(3, 6).map((item, index) => (
@@ -81,14 +81,12 @@ const HelplineNumbers = () => {
 
     {/* Right Column - Important Notes */}
     <div className="space-y-6">
-      <div className="bg-gray-50  p-6 border-l-4 border-orange-600">
+      <div className="bg-gray-50  p-6 border-t-4 border-orange-600">
         <h3 className="text-xl font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-200">Important Information</h3>
         <div className="space-y-4">
-          <div className="bg-orange-50 border-l-4 border-orange-600 p-4 rounded-r-lg">
+          <div className="border-l-4 border-orange-600 p-4 rounded-r-lg">
             <div className="flex items-center mb-2">
-              <svg className="w-5 h-5 text-orange-600 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-              </svg>
+
               <h4 className="font-semibold text-orange-800">Important Note</h4>
             </div>
             <p className="text-orange-700 text-sm">
@@ -96,7 +94,7 @@ const HelplineNumbers = () => {
             </p>
           </div>
 
-          <div className="bg-red-50 border-l-4 border-red-600 p-4 rounded-r-lg">
+          <div className=" border-l-4 border-red-600 p-4 rounded-r-lg">
             <h4 className="font-bold text-lg mb-2 text-red-800">Remember</h4>
             <p className="text-red-700 text-sm">
               "Your safety is our priority. Don't hesitate to reach out for help."

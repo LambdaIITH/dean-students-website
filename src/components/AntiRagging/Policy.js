@@ -1,64 +1,152 @@
-import React from 'react';
+// pages/index.js
+import Head from 'next/head';
 
-const Policy = () => {
+export default function AntiRaggingPolicy() {
   return (
-    <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-      <h2 className="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-[#FC5407] pb-2">
-        Zero-Tolerance Policy Explained
-      </h2>
+    <div className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
+      <Head>
+        <title>Anti-Ragging Policy | IIT Hyderabad</title>
+        <meta name="description" content="Official anti-ragging policy of IIT Hyderabad" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-      <div className="space-y-6 text-gray-700 leading-relaxed">
-        <div className="bg-red-50 border-l-4 border-[#FC5407] p-4 rounded-r-lg">
-          <h3 className="font-semibold text-red-800 mb-2">What is Ragging?</h3>
-          <p>
-            Ragging is any act of physical or mental abuse (including bullying and exclusion)
-            targeted at another student (fresher or otherwise) on the ground of color, race,
-            religion, caste, ethnicity, gender (including transgender), sexual orientation,
-            appearance, nationality, regional origins, linguistic identity, place of birth,
-            place of residence or economic background.
+      <div className="max-w-4xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-black mb-3">Zero-Tolerance Anti-Ragging Policy</h1>
+          <div className="w-40 h-1 bg-orange-500 mx-auto mb-4"></div>
+          <p className="text-gray-700 max-w-2xl mx-auto">
+            IIT Hyderabad is committed to maintaining a safe and inclusive environment for all students
           </p>
         </div>
 
-        <div className="bg-orange-50 border-l-4 border-orange-600 p-4 rounded-r-lg">
-          <h3 className="font-semibold text-orange-800 mb-2">Our Commitment</h3>
-          <p>
-            IIT Hyderabad is committed to providing a safe and conducive environment for all
-            students. We maintain a strict zero-tolerance policy towards ragging in any form.
-            Any incident of ragging will be dealt with severely as per the UGC regulations and
-            Supreme Court guidelines.
-          </p>
+        {/* Policy Card */}
+        <div className="bg-white rounded-lg shadow-sm p-6 sm:p-8 mb-10 border border-gray-200">
+          <div className="space-y-10">
+            {/* Definition Section */}
+            <div className="pb-2 border-b border-gray-200">
+              <h3 className="font-bold text-black text-xl mb-4 flex items-center pb-2 border-b-2 border-orange-500">
+                What Constitutes Ragging?
+              </h3>
+              <p className="text-gray-800">
+                Ragging is any act of physical or mental abuse (including bullying and exclusion)
+                directed at another student based on attributes such as color, race, religion, caste,
+                ethnicity, gender (including transgender), sexual orientation, appearance, nationality,
+                regional origins, linguistic identity, place of birth, place of residence or economic background.
+              </p>
+            </div>
+
+            {/* Commitment Section */}
+            <div className="pb-2 border-b border-gray-200">
+              <h3 className="font-bold text-black text-xl mb-4 flex items-center pb-2 border-b-2 border-orange-500">
+                Our Commitment
+              </h3>
+              <p className="text-gray-800">
+                IIT Hyderabad maintains a strict <span className="font-semibold text-orange-600">zero-tolerance policy</span> towards ragging. Any incidents
+                will be dealt with severely as per UGC regulations and Supreme Court guidelines to
+                ensure a safe and conducive environment for all students.
+              </p>
+            </div>
+
+            {/* Preventive Measures Section */}
+            <div className="pb-2 border-b border-gray-200">
+              <h3 className="font-bold text-black text-xl mb-4 flex items-center pb-2 border-b-2 border-orange-500">
+                Preventive Measures
+              </h3>
+              <ul className="space-y-3 text-gray-800">
+                <li className="flex items-start">
+                  <span className="inline-block h-2 w-2 rounded-full bg-orange-500 mt-2 mr-3"></span>
+                  <span>Regular awareness programs and orientation sessions</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="inline-block h-2 w-2 rounded-full bg-orange-500 mt-2 mr-3"></span>
+                  <span>Anti-ragging committee monitoring and intervention</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="inline-block h-2 w-2 rounded-full bg-orange-500 mt-2 mr-3"></span>
+                  <span>Anonymous reporting mechanisms</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="inline-block h-2 w-2 rounded-full bg-orange-500 mt-2 mr-3"></span>
+                  <span>Strict disciplinary actions including suspension and expulsion</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="inline-block h-2 w-2 rounded-full bg-orange-500 mt-2 mr-3"></span>
+                  <span>Counseling and support services for affected students</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Consequences Section */}
+            <div className="pb-2 border-b border-gray-200">
+              <h3 className="font-bold text-black text-xl mb-4 flex items-center pb-2 border-b-2 border-orange-500">
+                Legal & Academic Consequences
+              </h3>
+              <p className="text-gray-800 mb-4">
+                Ragging is a criminal offense under the Indian Penal Code. Students found guilty may face:
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                  <h4 className="font-bold text-black mb-3 flex items-center">
+                    <span className="inline-block h-2 w-2 rounded-full bg-orange-500 mr-2"></span>
+                    Legal Penalties
+                  </h4>
+                  <ul className="text-gray-800 space-y-2">
+                    <li className="flex items-start">
+                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-orange-500 mt-1.5 mr-2"></span>
+                      <span>Imprisonment up to 2 years</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-orange-500 mt-1.5 mr-2"></span>
+                      <span>Fine up to ₹10,000</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-orange-500 mt-1.5 mr-2"></span>
+                      <span>Criminal record</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                  <h4 className="font-bold text-black mb-3 flex items-center">
+                    <span className="inline-block h-2 w-2 rounded-full bg-orange-500 mr-2"></span>
+                    Academic Penalties
+                  </h4>
+                  <ul className="text-gray-800 space-y-2">
+                    <li className="flex items-start">
+                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-orange-500 mt-1.5 mr-2"></span>
+                      <span>Suspension from academic program</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-orange-500 mt-1.5 mr-2"></span>
+                      <span>Expulsion from the institute</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-orange-500 mt-1.5 mr-2"></span>
+                      <span>Withholding of degree/certificate</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Institutional Statement */}
+                      </div>
         </div>
 
-        <div className="bg-green-50 border-l-4 border-green-600 p-4 rounded-r-lg">
-          <h3 className="font-semibold text-green-800 mb-2">Preventive Measures</h3>
-          <ul className="list-disc ml-6 space-y-2">
-            <li>Regular awareness programs and orientation sessions</li>
-            <li>Anti-ragging committee monitoring and intervention</li>
-            <li>Anonymous reporting mechanisms</li>
-            <li>Strict disciplinary actions including suspension and expulsion</li>
-            <li>Counseling and support services for affected students</li>
-          </ul>
-        </div>
 
-        <div className="bg-purple-50 border-l-4 border-purple-600 p-4 rounded-r-lg">
-          <h3 className="font-semibold text-purple-800 mb-2">Legal Consequences</h3>
-          <p>
-            Ragging is a criminal offense under the Indian Penal Code. Students found guilty
-            of ragging may face imprisonment up to 2 years, fine up to Rs. 10,000, or both.
-            Academic consequences include suspension, rustication, or expulsion from the institute.
-          </p>
-        </div>
 
-        <div className="bg-gray-50 border-l-4 border-gray-600 p-4 rounded-r-lg">
-          <h3 className="font-semibold text-gray-800 mb-2">Remember</h3>
-          <p className="font-medium text-gray-900">
-            "Ragging is not just wrong, it's illegal. Stand up, speak out, and help create
-            a safe campus environment for everyone."
-          </p>
-        </div>
+        {/* Footer */}
+        <footer className="mt-12 pt-6 border-t border-gray-300 text-center text-gray-600">
+          <div className="mb-4">
+            <div className="inline-flex space-x-6">
+              <a href="#" className="text-orange-600 hover:text-orange-800">Student Handbook</a>
+              <a href="#" className="text-orange-600 hover:text-orange-800">UGC Regulations</a>
+              <a href="#" className="text-orange-600 hover:text-orange-800">Counseling Services</a>
+            </div>
+          </div>
+          <p>© {new Date().getFullYear()} Indian Institute of Technology Hyderabad. All rights reserved.</p>
+        </footer>
       </div>
     </div>
   );
-};
-
-export default Policy;
+}
