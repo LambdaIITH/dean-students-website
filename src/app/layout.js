@@ -1,26 +1,37 @@
 // src/app/layout.js
 import React from 'react';
-// We don't import 'Head' directly here for meta tags in App Router.
-// Meta tags and title are typically placed directly within the <head> tag inside the RootLayout function.
-import './globals.css'; // This line is CRUCIAL for loading your Tailwind styles
+import './globals.css'; // Import global styles
+
+// Import Navbar and Footer components
+import Navbar from "../components/common/Navbar/NavBar.js"; // Your unified Navbar
+import Footer from "../components/common/Footer.js"; // Your colleague's Footer
 
 export default function RootLayout({ children }) {
   return (
-    // The <html> tag is required as the root element of your document.
     <html lang="en">
-      {/* The <head> tag contains meta-information about the document. */}
       <head>
-        <meta charSet="utf-8" /> {/* Recommended for character encoding */}
+        <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Dean Academics - IIT Hyderabad</title>
-        {/* The font import is handled in globals.css, so no direct <link> tag needed here for Lato */}
+        <title>Dean Students - IIT Hyderabad</title>
       </head>
-      {/* The <body> tag contains all the contents of the HTML document. */}
-      {/* Apply the 'font-lato' class here to ensure your custom font is used throughout the app.
-          bg-gray-100 provides a light background for the entire page. */}
-      <body className="font-lato bg-gray-100 text-gray-900">
-        {children} {/* This prop represents the content of your pages (e.g., page.js, nested layouts) */}
+      <body className="font-lato bg-gray-100 text-gray-900 flex flex-col min-h-screen"> {/* Added flex-col min-h-screen */}
+        {/* Navbar is now part of the global layout */}
+        <Navbar />
+
+        {/* This is the "spacer div" or "offset div" for the fixed Navbar.
+            Its height should match the actual height of your Navbar.
+            You might need to adjust 'h-32' (128px) after seeing the live preview. */}
+        <div className="h-32 w-full"></div> {/* Adjust height as needed */}
+
+        {/* The 'children' prop will render the content of your specific pages (e.g., page.js for Home, page.js for Contact) */}
+        <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          {children}
+        </main>
+
+        {/* Footer is now part of the global layout */}
+        <Footer />
       </body>
     </html>
   );
 }
+
