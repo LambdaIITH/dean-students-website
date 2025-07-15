@@ -19,6 +19,13 @@
   }
 } */
 
+:root {
+  --orange: #f58a42;
+  --light-red: #d1402a;
+  --dark-red: #9d0000;
+  --footer: #171e27;
+}
+
 body {
   background: white;
   color: black;
