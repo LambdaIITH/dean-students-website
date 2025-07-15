@@ -24,10 +24,16 @@ export default function Footer() {
       title: "FACILITIES",
       links: [
         { href: "https://library.iith.ac.in/", label: "Library" },
-        { href: "https://www.iith.ac.in/computer-centre/", label: "Computer Centre" },
+        {
+          href: "https://www.iith.ac.in/computer-centre/",
+          label: "Computer Centre",
+        },
         { href: "https://cws.iith.ac.in", label: "Central Workshop" },
         { href: "https://www.iith.ac.in/bus_schedule/", label: "Bus Schedule" },
-        { href: "https://www.iith.ac.in/campus-kitchen/", label: "Campus Kitchen" },
+        {
+          href: "https://www.iith.ac.in/campus-kitchen/",
+          label: "Campus Kitchen",
+        },
         {
           href: "https://hospital.iith.ac.in/",
           label: "Medical Facilities",
@@ -37,8 +43,14 @@ export default function Footer() {
     {
       title: "CAMPUS LIFE",
       links: [
-        { href: "https://www.iith.ac.in/about/campus_services/", label: "Campus Services" },
-        { href: "https://www.iith.ac.in/about/aboutiith/#reach", label: "Getting Here" },
+        {
+          href: "https://www.iith.ac.in/about/campus_services/",
+          label: "Campus Services",
+        },
+        {
+          href: "https://www.iith.ac.in/about/aboutiith/#reach",
+          label: "Getting Here",
+        },
         { href: "https://cins.iith.ac.in/", label: "Campus Navigation" },
         { href: "http://security.iith.ac.in/", label: "Security" },
       ],
@@ -46,13 +58,19 @@ export default function Footer() {
     {
       title: "QUICK LINKS",
       links: [
-        { href: "https://www.iith.ac.in/tenders/", label: "Tender Invitations" },
+        {
+          href: "https://www.iith.ac.in/tenders/",
+          label: "Tender Invitations",
+        },
         { href: "https://intranet.iith.ac.in", label: "Intranet" },
-        { href: "https://www.iith.ac.in/emergency_contacts/", label: "Emergency Contacts" },
+        {
+          href: "https://www.iith.ac.in/emergency_contacts/",
+          label: "Emergency Contacts",
+        },
         { href: "/web_team/", label: "Website Team" },
         { href: "https://iith.ac.in/dofa/", label: "Dean of Faculty Affairs" },
       ],
-    }
+    },
   ];
 
   return (
@@ -133,11 +151,14 @@ export default function Footer() {
               Sitemap
             </a>{" "}
             |
-            <a href="/rti/" className="no-underline ml-1">
+            <a href="https://www.iith.ac.in/rti/" className="no-underline ml-1">
               RTI
             </a>{" "}
             |
-            <a href="/contact_us/" className="no-underline ml-1">
+            <a
+              href="https://www.iith.ac.in/contact_us/"
+              className="no-underline ml-1"
+            >
               Contact Us
             </a>
           </p>
