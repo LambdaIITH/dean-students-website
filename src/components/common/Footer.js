@@ -1,91 +1,72 @@
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faTwitter,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
+  const footerContent = [
+    {
+      title: "Academics",
+      links: [
+        { href: "https://aims.iith.ac.in/aims/", label: "AIMS" },
+        { href: "https://iith.ac.in/gian/", label: "GIAN" },
+        { href: "http://cce.iith.ac.in/", label: "CCE" },
+        {
+          href: "/academics/index.html",
+          label: "Office of Academic Affairs",
+        },
+        { href: "https://raiith.krc.iith.ac.in/", label: "RAIITH" },
+      ],
+    },
+    {
+      title: "Facilities",
+      links: [
+        { href: "https://library.iith.ac.in/", label: "Library" },
+        { href: "/computer-centre/", label: "Computer Centre" },
+        { href: "https://cws.iith.ac.in", label: "Central Workshop" },
+        { href: "/bus_schedule/", label: "Bus Schedule" },
+        { href: "/campus-kitchen/", label: "Campus Kitchen" },
+        {
+          href: "https://hospital.iith.ac.in/",
+          label: "Medical Facilities",
+        },
+      ],
+    },
+    {
+      title: "Campus Life",
+      links: [
+        { href: "/about/campus_services/", label: "Campus Services" },
+        { href: "/about/aboutiith/#reach", label: "Getting Here" },
+        {
+          href: "https://cins.iith.ac.in/",
+          label: "Campus Navigation",
+        },
+        { href: "http://security.iith.ac.in/", label: "Security" },
+      ],
+    },
+    {
+      title: "Quick Links",
+      links: [
+        { href: "/tenders/", label: "Tender Invitations" },
+        { href: "https://intranet.iith.ac.in", label: "Intranet" },
+        { href: "/emergency_contacts/", label: "Emergency Contacts" },
+        { href: "/web_team/", label: "Website Team" },
+        {
+          href: "https://iith.ac.in/dofa/",
+          label: "Dean of Faculty Affairs",
+        },
+      ],
+    },
+  ];
+
   return (
     <footer className="bg-gray-100 text-gray-800 text-sm border-t border-gray-200">
       <div className="container mx-auto px-4 py-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
-          {[
-            {
-              title: "Academics",
-              links: [
-                { href: "https://aims.iith.ac.in/aims/", label: "AIMS" },
-                { href: "https://iith.ac.in/gian/", label: "GIAN" },
-                { href: "http://cce.iith.ac.in/", label: "CCE" },
-                {
-                  href: "/academics/index.html",
-                  label: "Office of Academic Affairs",
-                },
-                { href: "https://raiith.krc.iith.ac.in/", label: "RAIITH" },
-              ],
-            },
-            {
-              title: "Facilities",
-              links: [
-                { href: "https://library.iith.ac.in/", label: "Library" },
-                { href: "/computer-centre/", label: "Computer Centre" },
-                { href: "https://cws.iith.ac.in", label: "Central Workshop" },
-                { href: "/bus_schedule/", label: "Bus Schedule" },
-                { href: "/campus-kitchen/", label: "Campus Kitchen" },
-                {
-                  href: "https://hospital.iith.ac.in/",
-                  label: "Medical Facilities",
-                },
-              ],
-            },
-            {
-              title: "Campus Life",
-              links: [
-                { href: "/about/campus_services/", label: "Campus Services" },
-                { href: "/about/aboutiith/#reach", label: "Getting Here" },
-                {
-                  href: "https://cins.iith.ac.in/",
-                  label: "Campus Navigation",
-                },
-                { href: "http://security.iith.ac.in/", label: "Security" },
-              ],
-            },
-            {
-              title: "Councils",
-              links: [
-                { href: "https://scstcell.iith.ac.in/", label: "SC ST Cell" },
-                {
-                  href: "https://ocs.iith.ac.in/",
-                  label: "Office of Career Services",
-                },
-                { href: "https://nss.iith.ac.in/", label: "NSS" },
-                {
-                  href: "http://cgc.iith.ac.in/",
-                  label: "Committee for Gender Concerns",
-                },
-                { href: "https://sunshine.iith.ac.in/", label: "Sunshine" },
-                { href: "https://gymkhana.iith.ac.in/", label: "Gymkhana" },
-                { href: "https://ebsb.iith.ac.in/", label: "EBSB Club" },
-                {
-                  href: "http://hostel.iith.ac.in/",
-                  label: "Hostel Coordinating Unit",
-                },
-                {
-                  href: "https://sites.google.com/iith.ac.in/safety",
-                  label: "Laboratory Safety",
-                },
-                { href: "/statutory-bodies/", label: "Statutory Bodies" },
-              ],
-            },
-            {
-              title: "Quick Links",
-              links: [
-                { href: "/tenders/", label: "Tender Invitations" },
-                { href: "https://intranet.iith.ac.in", label: "Intranet" },
-                { href: "/emergency_contacts/", label: "Emergency Contacts" },
-                { href: "/web_team/", label: "Website Team" },
-                {
-                  href: "https://iith.ac.in/dofa/",
-                  label: "Dean of Faculty Affairs",
-                },
-              ],
-            },
-          ].map((section, i) => (
+          {footerContent.map((section, i) => (
             <div key={i}>
               <h5 className="font-semibold text-lg mb-2">{section.title}</h5>
               <ul className="space-y-1">
@@ -113,7 +94,10 @@ export default function Footer() {
             title="Facebook"
             rel="noopener noreferrer"
           >
-            <i className="fa fa-facebook" />
+            <FontAwesomeIcon
+              icon={faFacebook}
+              className="text-blue-600 text-xl"
+            />{" "}
           </a>
           <a
             href="https://twitter.com/IITHyderabad"
@@ -121,7 +105,10 @@ export default function Footer() {
             title="Twitter"
             rel="noopener noreferrer"
           >
-            <i className="fa fa-twitter" />
+            <FontAwesomeIcon
+              icon={faTwitter}
+              className="text-blue-400 text-xl"
+            />{" "}
           </a>
           <a
             href="https://www.linkedin.com/school/indian-inst-of-technology-hyderabad/"
@@ -129,7 +116,10 @@ export default function Footer() {
             title="LinkedIn"
             rel="noopener noreferrer"
           >
-            <i className="fa fa-linkedin" />
+            <FontAwesomeIcon
+              icon={faLinkedin}
+              className="text-blue-700 text-xl"
+            />{" "}
           </a>
         </div>
 

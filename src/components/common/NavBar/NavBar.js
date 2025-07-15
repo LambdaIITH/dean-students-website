@@ -26,7 +26,7 @@ export default function NavBar() {
         {/* Hamburger Button (Mobile only) */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden focus:outline-none"
+          className="xl:hidden focus:outline-none"
         >
           {isOpen ? (
             <XMarkIcon className="h-6 w-6 text-gray-700" />
@@ -36,7 +36,7 @@ export default function NavBar() {
         </button>
 
         {/* Navigation */}
-        <nav className="hidden md:flex space-x-0">
+        <nav className="hidden xl:flex space-x-0">
           <Link href="/" className="text-[#d1402a] font-medium px-2 py-1">
             HOME
           </Link>
@@ -45,7 +45,10 @@ export default function NavBar() {
             id="new-students"
             title="NEW STUDENTS"
             links={[
-              { href: "/new-students/anti-ragging-pledge/", label: "Anti-ragging Pledge" },
+              {
+                href: "/new-students/anti-ragging-pledge/",
+                label: "Anti-ragging Pledge",
+              },
               { href: "/new-students/campus-map/", label: "Campus Map" },
               { href: "/new-students/faqs/", label: "FAQs" },
             ]}
@@ -84,7 +87,11 @@ export default function NavBar() {
             id="mental-well-being"
             title="MENTAL WELL-BEING"
             links={[
-              { href: "https://sunshine.iith.ac.in/", label: "Faculty", external: true },
+              {
+                href: "https://sunshine.iith.ac.in/",
+                label: "Faculty",
+                external: true,
+              },
               { href: "/mental-well-being/fics/", label: "FICs (Sunshine)" },
               { href: "/mental-well-being/counsellors/", label: "Counsellors" },
             ]}
@@ -99,7 +106,10 @@ export default function NavBar() {
             ]}
           />
 
-          <Link href="/contact" className="text-[#d1402a] font-medium px-2 py-1">
+          <Link
+            href="/contact"
+            className="text-[#d1402a] font-medium px-2 py-1"
+          >
             CONTACT
           </Link>
         </nav>
@@ -107,18 +117,33 @@ export default function NavBar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white shadow-sm px-6 py-4 space-y-2">
-          <Link href="/" className="block text-[#333333] font-medium">Home</Link>
-          <Link href="/" className="block text-[#333333] font-medium">New Students</Link>
-          <Link href="/" className="block text-[#333333] font-medium">Anti-Ragging</Link>
-          <Link href="/" className="block text-[#333333] font-medium">Student Activities</Link>
-          <Link href="/" className="block text-[#333333] font-medium">Sports</Link>
-          <Link href="/" className="block text-[#333333] font-medium">Sunshine</Link>
-          <Link href="/" className="block text-[#333333] font-medium">Hostels</Link>
-          <Link href="/" className="block text-[#333333] font-medium">Contact</Link>
+        <div className="xl:hidden bg-white shadow-sm px-6 py-4 space-y-2">
+          <Link href="/" className="block text-[#333333] font-medium">
+            Home
+          </Link>
+          <Link href="/" className="block text-[#333333] font-medium">
+            New Students
+          </Link>
+          <Link href="/" className="block text-[#333333] font-medium">
+            Anti-Ragging
+          </Link>
+          <Link href="/" className="block text-[#333333] font-medium">
+            Student Activities
+          </Link>
+          <Link href="/" className="block text-[#333333] font-medium">
+            Sports
+          </Link>
+          <Link href="/" className="block text-[#333333] font-medium">
+            Sunshine
+          </Link>
+          <Link href="/" className="block text-[#333333] font-medium">
+            Hostels
+          </Link>
+          <Link href="/" className="block text-[#333333] font-medium">
+            Contact
+          </Link>
         </div>
       )}
     </header>
   );
 }
-
