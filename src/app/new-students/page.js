@@ -1,7 +1,7 @@
 import React from 'react';
-import AntiRaggingPledge from '../../../components/NewStudents/RegistrationForm';
-import CampusMap from '../../../components/NewStudents/CampusMap';
-import FAQSection from '../../../components/NewStudents/FAQSection';
+import AntiRaggingPledge from '../../components/NewStudents/RegistrationForm';
+import CampusMap from '../../components/NewStudents/CampusMap';
+import FAQSection from '../../components/NewStudents/FAQSection';
 import { Facebook, Twitter, Linkedin } from 'lucide-react';
 const NewStudentsPage = () => {
   return (

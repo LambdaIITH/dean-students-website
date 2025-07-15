@@ -1,6 +1,6 @@
-import Poster from '../../../components/AntiRagging/AntiRaggingPoster';
-import HelplineNumbers from '../../../components/AntiRagging/HelplineNumbers';
-import Policy from '../../../components/AntiRagging/Policy';
+import Poster from '../../components/AntiRagging/AntiRaggingPoster';
+import HelplineNumbers from '../../components/AntiRagging/HelplineNumbers';
+import Policy from '../../components/AntiRagging/Policy';
 import Head from 'next/head';
 import Link from 'next/link';
 
