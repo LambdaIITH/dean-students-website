@@ -32,17 +32,10 @@ export default function SunshineProgram() {
 
           <div className="flex flex-wrap gap-3">
             <a
-              href="#"
-              className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-6 rounded-lg transition-colors"
-            >
-              Book Appointment
-            </a>
-            <a
-              href="#"
-              className="bg-white border border-orange-500 text-orange-500 hover:bg-orange-50 font-medium py-2 px-6 rounded-lg transition-colors"
-            >
-              Program Resources
-            </a>
+              href="https://sunshine.iith.ac.in/"
+              className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-6 rounded-lg transition-colors" target="_blank"
+            >Visit Website</a>
+
           </div>
         </div>
 
@@ -56,20 +49,7 @@ export default function SunshineProgram() {
         <ResourcesSection />
       </div>
 
-      {/* Footer */}
-      <footer className="bg-gray-800 text-gray-300 py-8">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="mb-4">
-            <p className="mb-2">Your mental health matters - reach out anytime</p>
-            <div className="text-orange-400 font-medium text-lg">1800-180-5522</div>
-          </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center text-sm pt-4 border-t border-gray-700">
-            <div>© {new Date().getFullYear()} Sunshine Program</div>
-            <div className="mt-2 md:mt-0">Confidential & Compassionate Support</div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

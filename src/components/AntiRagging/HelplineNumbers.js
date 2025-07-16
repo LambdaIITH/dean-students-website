@@ -87,35 +87,20 @@ const HelplineNumbers = () => {
           <div className="border-l-4 border-orange-600 p-4 rounded-r-lg">
             <div className="flex items-center mb-2">
 
-              <h4 className="font-semibold text-orange-800">Important Note</h4>
+              <h4 className="font-semibold text-black">Important Note</h4>
             </div>
-            <p className="text-orange-700 text-sm">
+            <p className="text-black text-sm">
               All helpline numbers are operational 24/7. In case of emergency, contact campus security immediately.
             </p>
           </div>
 
           <div className=" border-l-4 border-red-600 p-4 rounded-r-lg">
-            <h4 className="font-bold text-lg mb-2 text-red-800">Remember</h4>
-            <p className="text-red-700 text-sm">
+            <h4 className="font-bold text-lg mb-2 text-black">Remember</h4>
+            <p className="text-black text-sm">
               "Your safety is our priority. Don't hesitate to reach out for help."
             </p>
           </div>
 
-          {helplineData.length > 6 && (
-            <div className="hover:bg-blue-50 p-3 rounded transition duration-200">
-              {helplineData.slice(6).map((item, index) => (
-                <div key={index} className="mb-4 last:mb-0">
-                  <div className="flex items-center mb-1">
-                    <span className="text-xl mr-2">{item.icon}</span>
-                    <h4 className="font-medium text-gray-800">{item.title}</h4>
-                  </div>
-                  <a href={`tel:${item.number}`} className="text-lg font-bold text-blue-600 hover:text-blue-700 block">
-                    {item.number}
-                  </a>
-                </div>
-              ))}
-            </div>
-          )}
         </div>
       </div>
     </div>
