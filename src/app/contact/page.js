@@ -2,23 +2,19 @@
 
 import React, { useState } from 'react';
 
-
 export default function ContactPage() {
-  // State to hold form data
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    studentId: '', // Optional: Student ID
-    affiliation: '', // Optional: Affiliation
+    studentId: '',
+    affiliation: '',
     subject: '',
     message: '',
   });
 
-  // State for form submission status or messages
   const [status, setStatus] = useState('');
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -27,49 +23,13 @@ export default function ContactPage() {
     }));
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission behavior
+    e.preventDefault();
+    setStatus('Submitting...');
 
-    setStatus('Submitting...'); // Set status to indicate submission is in progress
-
-    // --- Placeholder for actual form submission logic ---
-    // In a real application, you would send this data to a backend API endpoint.
-    // Example using fetch API:
-    /*
-    try {
-      const response = await fetch('/api/contact', { // Replace with your actual API endpoint
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setStatus('Message sent successfully! We will get back to you soon.');
-        setFormData({ // Clear form after successful submission
-          name: '',
-          email: '',
-          phone: '',
-          studentId: '',
-          affiliation: '',
-          subject: '',
-          message: '',
-        });
-      } else {
-        setStatus('Failed to send message. Please try again.');
-        console.error('Form submission failed:', response.statusText);
-      }
-    } catch (error) {
-      setStatus('An error occurred. Please check your internet connection and try again.');
-      console.error('Form submission error:', error);
-    }
-    */
-
-    await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulate network request
+    await new Promise((resolve) => setTimeout(resolve, 1500));
     setStatus('Message sent successfully! We will get back to you soon.');
-    setFormData({ // Clear form after successful submission
+    setFormData({
       name: '',
       email: '',
       phone: '',
@@ -78,13 +38,13 @@ export default function ContactPage() {
       subject: '',
       message: '',
     });
-    // --- End of placeholder ---
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      
-      <div className="max-w-2xl w-full bg-white shadow-xl rounded-lg p-8 space-y-6">
+    // Outer div: Overall page content area background is white.
+    <div className="min-h-screen flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-white">
+      {/* Inner div (form container): Removed shadow-xl class */}
+      <div className="max-w-2xl w-full bg-white rounded-lg p-8 space-y-6"> {/* shadow-xl removed */}
         <h1 className="text-4xl font-extrabold text-center text-iith-orange-dark mb-6">
           Contact Dean Students
         </h1>
@@ -93,7 +53,6 @@ export default function ContactPage() {
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Name Field */}
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
               Full Name
@@ -105,12 +64,11 @@ export default function ContactPage() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-iith-orange-light focus:border-iith-orange-light sm:text-sm"
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-iith-orange-light focus:border-iith-orange-light sm:text-sm bg-gray-100"
               placeholder="Your Full Name"
             />
           </div>
 
-          {/* Email Field */}
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
               Email Address
@@ -122,12 +80,11 @@ export default function ContactPage() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-iith-orange-light focus:border-iith-orange-light sm:text-sm"
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-iith-orange-light focus:border-iith-orange-light sm:text-sm bg-gray-100"
               placeholder="your.email@example.com"
             />
           </div>
 
-          {/* Phone Number Field */}
           <div>
             <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
               Phone Number (Optional)
@@ -138,12 +95,11 @@ export default function ContactPage() {
               id="phone"
               value={formData.phone}
               onChange={handleChange}
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-iith-orange-light focus:border-iith-orange-light sm:text-sm"
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-iith-orange-light focus:border-iith-orange-light sm:text-sm bg-gray-100"
               placeholder="+91 12345 67890"
             />
           </div>
 
-          {/* Student ID Field (Optional) */}
           <div>
             <label htmlFor="studentId" className="block text-sm font-medium text-gray-700 mb-1">
               Student ID / Roll Number (Optional)
@@ -154,12 +110,11 @@ export default function ContactPage() {
               id="studentId"
               value={formData.studentId}
               onChange={handleChange}
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-iith-orange-light focus:border-iith-orange-light sm:text-sm"
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-iith-orange-light focus:border-iith-orange-light sm:text-sm bg-gray-100"
               placeholder="e.g., xx24BTECH110xx"
             />
           </div>
 
-          {/* Affiliation Dropdown (Optional) */}
           <div>
             <label htmlFor="affiliation" className="block text-sm font-medium text-gray-700 mb-1">
               Your Affiliation (Optional)
@@ -169,7 +124,7 @@ export default function ContactPage() {
               id="affiliation"
               value={formData.affiliation}
               onChange={handleChange}
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-iith-orange-light focus:border-iith-orange-light sm:text-sm"
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-iith-orange-light focus:border-iith-orange-light sm:text-sm bg-gray-100"
             >
               <option value="">Select an option</option>
               <option value="student">Student</option>
@@ -180,7 +135,6 @@ export default function ContactPage() {
             </select>
           </div>
 
-          {/* Subject Field */}
           <div>
             <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
               Subject
@@ -192,12 +146,11 @@ export default function ContactPage() {
               value={formData.subject}
               onChange={handleChange}
               required
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-iith-orange-light focus:border-iith-orange-light sm:text-sm"
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-iith-orange-light focus:border-iith-orange-light sm:text-sm bg-gray-100"
               placeholder="Brief summary of your inquiry"
             />
           </div>
 
-          {/* Message/Query Field */}
           <div>
             <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
               Your Message / Query
@@ -209,19 +162,17 @@ export default function ContactPage() {
               onChange={handleChange}
               rows="5"
               required
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-iith-orange-light focus:border-iith-orange-light sm:text-sm"
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-iith-orange-light focus:border-iith-orange-light sm:text-sm bg-gray-100"
               placeholder="Write your detailed message here..."
             ></textarea>
           </div>
 
-          {/* Status Message */}
           {status && (
             <div className={`text-center py-2 rounded-md ${status.includes('successfully') ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
               {status}
             </div>
           )}
 
-          {/* Submit Button */}
           <div>
             <button
               type="submit"
@@ -232,8 +183,6 @@ export default function ContactPage() {
           </div>
         </form>
       </div>
-      
     </div>
   );
 }
-
