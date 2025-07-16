@@ -77,10 +77,10 @@ export default function ClubsPage() {
     <main className="px-4 py-10 space-y-12">
       {/* Header */}
       <section className="max-w-4xl mx-auto text-center">
-        <h1 className="text-4xl font-bold text-[#d1402a] underline underline-offset-8 decoration-[#f58a42] mb-6">
+        <h1 className="text-4xl font-bold text-black underline underline-offset-8 decoration-[#f58a42] mb-6">
           Student Gymkhana Clubs
         </h1>
-        <p className="text-[#171e27] text-lg leading-relaxed">
+        <p className="text-[#171e27] text-lg leading-relaxed text-justify">
           The <strong>Student Gymkhana at IIT Hyderabad</strong> is the heart of
           student life, fostering a culture of excellence, leadership, and
           creativity. It comprises various councils including cultural,

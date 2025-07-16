@@ -29,10 +29,10 @@ export default function NSOPage() {
     <main className="px-4 py-10 space-y-12">
       {/* Header Section */}
       <section className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold text-center text-[#d1402a] underline underline-offset-8 decoration-[#f58a42] mb-6">
+        <h1 className="text-4xl font-bold text-center text-black underline underline-offset-8 decoration-[#f58a42] mb-6">
           National Sports Organisation
         </h1>
-        <p className="text-[#171e27] text-lg leading-relaxed">
+        <p className="text-[#171e27] text-lg leading-relaxed text-justify">
           At IIT Hyderabad, the NSO program fosters a vibrant sports
           culture—both within campus and beyond. Through well-equipped
           facilities like gyms, courts, and fields, students participate in
@@ -44,7 +44,7 @@ export default function NSOPage() {
 
       {/* Sports Offered */}
       <section className="bg-white shadow-lg rounded-2xl p-6 max-w-4xl mx-auto">
-        <h2 className="text-2xl font-semibold text-[#9d0000] mb-4">
+        <h2 className="text-2xl font-semibold text-black underline underline-offset-8 decoration-[#f58a42] mb-4">
           Sports Offered
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
@@ -67,7 +67,7 @@ export default function NSOPage() {
 
       {/* Why NSO */}
       <section className="max-w-3xl mx-auto text-[#171e27] space-y-4">
-        <h2 className="text-2xl font-semibold text-[#9d0000]">Why NSO?</h2>
+        <h2 className="text-2xl font-semibold text-black">Why NSO?</h2>
         <ul className="list-disc list-inside space-y-1">
           <li>Enhances physical fitness, discipline & team spirit.</li>
           <li>Mandatory two-semester credit program for B.Tech students.</li>
@@ -80,7 +80,7 @@ export default function NSOPage() {
 
       {/* NSO Team */}
       <section className="bg-white shadow-lg rounded-2xl p-6 max-w-3xl mx-auto">
-        <h2 className="text-2xl font-semibold text-[#9d0000] mb-4">NSO Team</h2>
+        <h2 className="text-2xl font-semibold text-black mb-4">NSO Team</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {coordinators.map((c) => (
             <div

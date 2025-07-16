@@ -9,7 +9,7 @@ import {
   XMarkIcon,
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
-import Dropdown from "./Dropdown";
+import Dropdown from "src/components/common/navbar/Dropdown";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,66 +23,76 @@ export default function NavBar() {
   }, []);
 
   // Memoized navigation items with proper hrefs
-  const navItems = useMemo(() => [
-    { label: "Home", href: "/" },
-    { label: "New Students", href: "/new-students", id: "new-students" },
-    { label: "Anti-Ragging", href: "/anti-ragging", id: "anti-ragging" },
-    {
-      label: "Student Activities",
-      id: "student-activities",
-      children: [
-        {
-          href: "https://gymkhana.iith.ac.in/",
-          label: "Gymkhana Council",
-          external: true,
-        },
-        { href: "/student-activities/clubs/", label: "Clubs" },
-        { href: "/student-activities/fics/", label: "FICs" },
-      ],
-    },
-    {
-      label: "Sports",
-      id: "sports",
-      children: [
-        { href: "/sports/facilities/", label: "Sports Facilities" },
-        { href: "/sports/nso/", label: "NSO" },
-        { href: "/sports/fics/", label: "FICs (Sports)" },
-      ],
-    },
-    { label: "Sunshine", href: "/student-wellbeing", id: "student-wellbeing" },
-    {
-      label: "Hostels",
-      id: "hostels",
-      children: [
-        { href: "/hostels/hostel-info/", label: "Hostel Information" },
-        { href: "/hostels/hcu/", label: "HCU" },
-      ],
-    },
-    { label: "Contact", href: "/contact" },
-  ], []);
+  const navItems = useMemo(
+    () => [
+      { label: "Home", href: "/" },
+      { label: "New Students", href: "/new-students", id: "new-students" },
+      { label: "Anti-Ragging", href: "/anti-ragging", id: "anti-ragging" },
+      {
+        label: "Student Activities",
+        id: "student-activities",
+        children: [
+          {
+            href: "https://gymkhana.iith.ac.in/",
+            label: "Gymkhana Council",
+            external: true,
+          },
+          { href: "/student-activities/clubs/", label: "Clubs" },
+          { href: "/student-activities/fics/", label: "FICs" },
+        ],
+      },
+      {
+        label: "Sports",
+        id: "sports",
+        children: [
+          { href: "/sports/facilities/", label: "Sports Facilities" },
+          { href: "/sports/nso/", label: "NSO" },
+          { href: "/sports/fics/", label: "FICs (Sports)" },
+        ],
+      },
+      {
+        label: "Sunshine",
+        href: "/student-wellbeing",
+        id: "student-wellbeing",
+      },
+      {
+        label: "Hostels",
+        id: "hostels",
+        children: [
+          { href: "/hostels/hostel-info/", label: "Hostel Information" },
+          { href: "/hostels/hcu/", label: "HCU" },
+        ],
+      },
+      { label: "Contact", href: "/contact" },
+    ],
+    []
+  );
 
   // Check if item is active
-  const isItemActive = useCallback((item) => {
-    const topLevel = pathname.split("/")[1] || "";
+  const isItemActive = useCallback(
+    (item) => {
+      const topLevel = pathname.split("/")[1] || "";
 
-    if (item.href) {
-      const itemTopLevel = item.href.split("/")[1] || "";
-      return topLevel === itemTopLevel;
-    }
+      if (item.href) {
+        const itemTopLevel = item.href.split("/")[1] || "";
+        return topLevel === itemTopLevel;
+      }
 
-    if (item.id) {
-      const isParentActive = topLevel === item.id;
-      const isChildActive = item.children?.some(child => {
-        if (child.external) return false;
-        const childTopLevel = child.href.split("/")[1] || "";
-        return topLevel === childTopLevel;
-      });
+      if (item.id) {
+        const isParentActive = topLevel === item.id;
+        const isChildActive = item.children?.some((child) => {
+          if (child.external) return false;
+          const childTopLevel = child.href.split("/")[1] || "";
+          return topLevel === childTopLevel;
+        });
 
-      return isParentActive || isChildActive;
-    }
+        return isParentActive || isChildActive;
+      }
 
-    return false;
-  }, [pathname]);
+      return false;
+    },
+    [pathname]
+  );
 
   // Active styles
   const activeColor = "text-[#fc1900]";
@@ -112,7 +122,7 @@ export default function NavBar() {
 
         {/* Mobile menu toggle */}
         <button
-          onClick={() => setIsOpen(prev => !prev)}
+          onClick={() => setIsOpen((prev) => !prev)}
           className="xl:hidden focus:outline-none p-2 rounded-lg hover:bg-[#f58a42]/10 transition duration-200 focus:ring-2 focus:ring-[#f58a42]/50"
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
@@ -128,13 +138,16 @@ export default function NavBar() {
         <nav className="hidden xl:flex items-center space-x-1 text-[1rem]">
           {navItems.map((item) => {
             const isActive = isItemActive(item);
-            const hasChildren = Array.isArray(item.children) && item.children.length > 0;
+            const hasChildren =
+              Array.isArray(item.children) && item.children.length > 0;
 
             if (hasChildren) {
               return (
                 <div key={item.id} className="relative group">
                   <button
-                    className={`${navItemStyle} ${isActive ? activeColor : defaultColor} inline-flex items-center`}
+                    className={`${navItemStyle} ${
+                      isActive ? activeColor : defaultColor
+                    } inline-flex items-center`}
                     aria-haspopup="true"
                     aria-expanded={false}
                   >
@@ -145,7 +158,7 @@ export default function NavBar() {
                     className="absolute hidden group-hover:block bg-white shadow-lg rounded-xl p-2 min-w-[200px] z-50"
                     role="menu"
                   >
-                    {item.children.map((child) => (
+                    {item.children.map((child) =>
                       child.external ? (
                         <a
                           key={child.label}
@@ -161,13 +174,15 @@ export default function NavBar() {
                         <Link
                           key={child.label}
                           href={child.href}
-                          className={`block px-4 py-2 rounded-lg hover:bg-[#f58a42]/15 hover:text-[#9d0000] transition-colors duration-200 ${pathname === child.href ? activeColor : defaultColor}`}
+                          className={`block px-4 py-2 rounded-lg hover:bg-[#f58a42]/15 hover:text-[#9d0000] transition-colors duration-200 ${
+                            pathname === child.href ? activeColor : defaultColor
+                          }`}
                           role="menuitem"
                         >
                           {child.label}
                         </Link>
                       )
-                    ))}
+                    )}
                   </div>
                 </div>
               );
@@ -177,7 +192,9 @@ export default function NavBar() {
               <Link
                 key={item.label}
                 href={item.href}
-                className={`${navItemStyle} ${isActive ? activeColor : defaultColor}`}
+                className={`${navItemStyle} ${
+                  isActive ? activeColor : defaultColor
+                }`}
                 aria-current={isActive ? "page" : undefined}
               >
                 {item.label}
@@ -195,7 +212,8 @@ export default function NavBar() {
         >
           {navItems.map((item) => {
             const isActive = isItemActive(item);
-            const hasChildren = Array.isArray(item.children) && item.children.length > 0;
+            const hasChildren =
+              Array.isArray(item.children) && item.children.length > 0;
 
             if (!hasChildren) {
               return (
