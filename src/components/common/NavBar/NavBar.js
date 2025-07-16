@@ -9,7 +9,7 @@ import {
   XMarkIcon,
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
-import Dropdown from "src/components/common/navbar/Dropdown";
+import Dropdown from "./Dropdown";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);

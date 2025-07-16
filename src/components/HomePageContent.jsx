@@ -102,8 +102,8 @@ export default function HomePageContent() {
     <div className={`transition-opacity duration-700 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       {/* 1. Hero Section: Photo Carousel Background with IITH Logo Overlay */}
       {/* w-screen, left-1/2, -translate-x-1/2 force it to span full viewport width and center it */}
-      <section className="relative w-screen h-[60vh] sm:h-[70vh] md:h-[80vh] overflow-hidden bg-black flex items-center justify-center
-                          left-1/2 transform -translate-x-1/2">
+      <section className="relative w-screen h-screen overflow-hidden bg-black flex items-center justify-center left-1/2 transform -translate-x-1/2">
+
         {/* Carousel Background Images */}
         {carouselImages.map((imageSrc, index) => (
           <Image
@@ -142,7 +142,7 @@ export default function HomePageContent() {
       {/* Main content wrapper */}
       <div className="w-full">
         {/* 2. About Us Section */}
-        <section className="bg-white shadow-md rounded-lg p-8 mb-12 container mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+        <section className="bg-white shadow-md rounded-lg p-8 container mx-auto px-4 sm:px-6 lg:px-8 mt-12">
           <h2 className="text-4xl font-extrabold text-center text-black mb-8 underline">
             About Us
           </h2>
