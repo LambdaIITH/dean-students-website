@@ -3,10 +3,15 @@
 import Link from "next/link";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
-export default function Dropdown({ id, title, links }) {
+export default function Dropdown({ id, title, links, className }) {
   return (
     <div className="relative group h-full">
-      <button className="flex items-center px-2 py-1 h-full text-[#171e27] font-medium hover:text-[#d1402a] hover:bg-[#f58a42]/10 rounded cursor-pointer transition-all duration-200">
+      <button
+        className={
+          className +
+          " flex items-center px-2 py-1 h-full text-[#171e27] font-medium hover:text-[#d1402a] hover:bg-[#f58a42]/10 rounded cursor-pointer transition-all duration-200"
+        }
+      >
         <span>{title}</span>
         <ChevronDownIcon className="w-3 h-3 ml-1 transform transition-transform duration-200 group-hover:rotate-180" />
       </button>
