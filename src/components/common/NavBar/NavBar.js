@@ -77,7 +77,7 @@ export default function NavBar() {
             id="sports"
             title="SPORTS"
             links={[
-              { href: "/sports/aboutiith/", label: "Sports Facilities" },
+              { href: "/sports/facilities/", label: "Sports Facilities" },
               { href: "/sports/nso/", label: "NSO", external: true },
               { href: "/sports/fics/", label: "FICs (Sports)" },
             ]}
