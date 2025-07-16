@@ -33,7 +33,7 @@ export default function NavBar() {
         >
           <div className="p-1.5 rounded-xl">
             <Image
-              src="/horzlogolong.png"
+              src="/assets/horzlogolong.png"
               alt="IITH Logo"
               width={220}
               height={65}
