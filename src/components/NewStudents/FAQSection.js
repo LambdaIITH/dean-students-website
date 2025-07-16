@@ -1,6 +1,8 @@
 "use client";
+
 import React, { useState } from 'react';
-import { HelpCircle, ChevronDown, ChevronRight, Mail, Phone } from 'lucide-react';
+import { HelpCircle, ChevronDown, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const FAQSection = () => {
   const [expandedFAQ, setExpandedFAQ] = useState(null);
@@ -53,28 +55,36 @@ const FAQSection = () => {
 
       <div className="space-y-4">
         {faqData.map((faq, index) => (
-          <div key={index} className="border border-gray-200 rounded-lg">
+          <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
             <button
               onClick={() => toggleFAQ(index)}
-              className="w-full text-left p-4 hover:bg-gray-100 transition-colors flex items-center justify-between"
+              className="w-full text-left p-4 hover:bg-gray-200 transition-colors flex items-center justify-between"
             >
               <span className="font-semibold text-gray-800">{faq.question}</span>
               {expandedFAQ === index ? (
-                <ChevronDown className="h-5 w-5 text-gray-500" />
+                <ChevronDown className="h-5 w-5 text-gray-500 transform rotate-180 transition-transform" />
               ) : (
-                <ChevronRight className="h-5 w-5 text-gray-500" />
+                <ChevronRight className="h-5 w-5 text-gray-500 transition-transform" />
               )}
             </button>
 
-            {expandedFAQ === index && (
-              <div className="p-4 pt-0 border-t border-gray-200">
-                <p className="text-gray-700">{faq.answer}</p>
-              </div>
-            )}
+            <AnimatePresence initial={false}>
+              {expandedFAQ === index && (
+                <motion.div
+                  key="content"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="px-4 pb-4 pt-0 bg-white"
+                >
+                  <p className="text-gray-700">{faq.answer}</p>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         ))}
       </div>
-
     </section>
   );
 };

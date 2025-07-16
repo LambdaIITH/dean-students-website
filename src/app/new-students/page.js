@@ -6,9 +6,9 @@ import { Facebook, Twitter, Linkedin } from 'lucide-react';
 
 const NewStudentsPage = () => {
   return (
-    <div className="min-h-screen pt-20 bg-gray-100">
+    <div className="min-h-screen pt-20 ">
       {/* Header with left-aligned heading and orange underline */}
-      <header className="bg-gray-100 py-8 px-6 sm:px-12">
+      <header className=" py-8 px-6 sm:px-12">
         <div className="container mx-auto px-6">
           <h1 className="text-black text-3xl font-bold pb-2 border-b-4 border-orange-500 inline-block">
             New Students
