@@ -10,7 +10,7 @@ export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItemStyle =
-    "text-[#d1402a] font-medium tracking-wide text-sm px-4 py-2 rounded-xl hover:bg-[#f58a42]/15 hover:text-[#9d0000] transition-all duration-200 inline-flex items-center";
+    "text-[#d1402a] font-medium tracking-wide text-xs px-4 py-2 rounded-xl hover:bg-[#f58a42]/15 hover:text-[#9d0000] transition-all duration-200 inline-flex items-center";
 
   const mobileLinks = [
     { label: "Home", href: "/" },
@@ -25,11 +25,11 @@ export default function NavBar() {
 
   return (
     <header className="fixed top-0 left-0 z-50 w-full bg-white/95 backdrop-blur-md shadow-xl border-b border-gray-200">
-      <div className="flex items-center justify-between px-6 py-4 container mx-auto text-sm">
+      <div className="flex items-center justify-between px-6 py-4 container mx-auto text-[0.8rem]">
         {/* Logo with centered shadow */}
         <Link
           href="/"
-          className="flex-shrink-0 transition-transform hover:scale-[1.03]"
+          className="flex-shrink-0 transition-transform hover:scale-[1.1]"
         >
           <div className="p-1.5 rounded-xl">
             <Image
@@ -146,7 +146,7 @@ export default function NavBar() {
             <Link
               key={label}
               href={href}
-              className="block text-[#171e27] font-medium text-sm tracking-wide py-2 px-3 rounded-xl hover:bg-[#f58a42]/15 hover:text-[#9d0000] transition-all duration-200"
+              className="block text-[#171e27] font-medium text-xs tracking-wide py-2 px-3 rounded-xl hover:bg-[#f58a42]/15 hover:text-[#9d0000] transition-all duration-200"
             >
               {label}
             </Link>
