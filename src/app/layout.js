@@ -1,8 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/common/NavBar/NavBar";
-import Footer from "@/components/common/Footer";
-import '@fortawesome/fontawesome-svg-core/styles.css';
+import Footer from "@/components/common/Footer/Footer";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
       >
         <div className="min-h-screen flex flex-col">
           <NavBar />
-          <main className="flex-grow">{children}</main>
+          <main className="flex-grow pt-20">{children}</main>
           <Footer />
         </div>
       </body>
