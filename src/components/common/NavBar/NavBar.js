@@ -42,7 +42,10 @@ export default function NavBar() {
     {
       label: "Anti-Ragging",
       id: "anti-ragging",
-      children: [],
+      children: [
+        { href: "/anti-ragging", label: "Anti Ragging" },
+        // { href: "/new-students/faqs/", label: "FAQs" },
+      ],
     },
     {
       label: "Student Activities",
@@ -123,9 +126,8 @@ export default function NavBar() {
         <nav className="hidden xl:flex items-center space-x-1 text-[1rem]">
           <Link
             href="/"
-            className={`${navItemStyle} ${
-              pathname === "/" ? activeColor : defaultColor
-            }`}
+            className={`${navItemStyle} ${pathname === "/" ? activeColor : defaultColor
+              }`}
           >
             Home
           </Link>
@@ -144,9 +146,8 @@ export default function NavBar() {
 
           <Link
             href="/contact"
-            className={`${navItemStyle} ${
-              topLevel === "contact" ? activeColor : defaultColor
-            }`}
+            className={`${navItemStyle} ${topLevel === "contact" ? activeColor : defaultColor
+              }`}
           >
             Contact
           </Link>
@@ -165,11 +166,10 @@ export default function NavBar() {
                 <Link
                   key={label}
                   href={href}
-                  className={`block font-medium text-xs tracking-wide py-2 px-3 rounded-xl transition-all duration-200 ${
-                    isActive
+                  className={`block font-medium text-xs tracking-wide py-2 px-3 rounded-xl transition-all duration-200 ${isActive
                       ? "text-[#f58a42] font-semibold"
                       : "text-[#171e27] hover:bg-[#f58a42]/15 hover:text-[#9d0000]"
-                  }`}
+                    }`}
                 >
                   {label}
                 </Link>
@@ -182,17 +182,15 @@ export default function NavBar() {
                   onClick={() =>
                     setOpenAccordion(openAccordion === id ? null : id)
                   }
-                  className={`w-full flex justify-between items-center font-medium text-xs tracking-wide py-2 px-3 rounded-xl transition-all duration-200 ${
-                    isActive
+                  className={`w-full flex justify-between items-center font-medium text-xs tracking-wide py-2 px-3 rounded-xl transition-all duration-200 ${isActive
                       ? "text-[#f58a42]"
                       : "text-[#171e27] hover:bg-[#f58a42]/15 hover:text-[#9d0000]"
-                  }`}
+                    }`}
                 >
                   {label}
                   <ChevronDownIcon
-                    className={`h-4 w-4 ml-2 transform transition-transform duration-200 ${
-                      openAccordion === id ? "rotate-180" : ""
-                    }`}
+                    className={`h-4 w-4 ml-2 transform transition-transform duration-200 ${openAccordion === id ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
 
@@ -213,11 +211,10 @@ export default function NavBar() {
                         <Link
                           key={label}
                           href={href}
-                          className={`block text-xs px-3 py-1 rounded-md ${
-                            pathname === href
+                          className={`block text-xs px-3 py-1 rounded-md ${pathname === href
                               ? "text-[#f58a42] font-semibold"
                               : "text-[#171e27] hover:text-[#f58a42]"
-                          }`}
+                            }`}
                         >
                           {label}
                         </Link>
