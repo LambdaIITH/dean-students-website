@@ -78,7 +78,7 @@ export default function NavBar() {
             title="SPORTS"
             links={[
               { href: "/sports/facilities/", label: "Sports Facilities" },
-              { href: "/sports/nso/", label: "NSO", external: true },
+              { href: "/sports/nso/", label: "NSO" },
               { href: "/sports/fics/", label: "FICs (Sports)" },
             ]}
           />
