@@ -35,14 +35,14 @@ const HelplineNumbers = () => {
   ];
 
   return (
-  <div className="bg-white rounded-lg shadow-md p-8 mb-8">
+  <div className="bg-gray-100 rounded-lg shadow-md p-8 mb-8">
   <h2 className="text-2xl font-bold text-gray-800 mb-6  border-red-600 pb-2">
     Emergency Helpline Numbers
   </h2>
 
-  <div className="grid md:grid-cols-3 gap-8">
+  <div className="grid md:grid-cols-3 bg-gray-100 gap-8">
     {/* Left Column - Emergency Contacts */}
-    <div className="bg-gray-50  p-6 border-t-4 border-red-600">
+    <div className="bg-gray-100  p-6 border-t-4 border-red-600">
       <h3 className="text-xl font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-200">Emergency Contacts</h3>
       <div className="space-y-6">
         {helplineData.slice(0, 3).map((item, index) => (
@@ -61,7 +61,7 @@ const HelplineNumbers = () => {
     </div>
 
     {/* Middle Column - Support Services */}
-    <div className="bg-gray-50  p-6 border-t-4 border-orange-600">
+    <div className="bg-gray-100  p-6 border-t-4 border-orange-600">
       <h3 className="text-xl font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-200">Support Services</h3>
       <div className="space-y-6">
         {helplineData.slice(3, 6).map((item, index) => (
@@ -81,7 +81,7 @@ const HelplineNumbers = () => {
 
     {/* Right Column - Important Notes */}
     <div className="space-y-6">
-      <div className="bg-gray-50  p-6 border-t-4 border-orange-600">
+      <div className="bg-gray-100  p-6 border-t-4 border-orange-600">
         <h3 className="text-xl font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-200">Important Information</h3>
         <div className="space-y-4">
           <div className="border-l-4 border-orange-600 p-4 rounded-r-lg">

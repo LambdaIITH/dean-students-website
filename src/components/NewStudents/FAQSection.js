@@ -45,7 +45,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="bg-#171e27 rounded-lg shadow-md p-8">
+    <section className="bg-gray-100 rounded-lg shadow-md p-8">
       <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
         <HelpCircle className="mr-3 text-blue-600" />
         Frequently Asked Questions (Non-Academic)
@@ -56,7 +56,7 @@ const FAQSection = () => {
           <div key={index} className="border border-gray-200 rounded-lg">
             <button
               onClick={() => toggleFAQ(index)}
-              className="w-full text-left p-4 hover:bg-gray-50 transition-colors flex items-center justify-between"
+              className="w-full text-left p-4 hover:bg-gray-100 transition-colors flex items-center justify-between"
             >
               <span className="font-semibold text-gray-800">{faq.question}</span>
               {expandedFAQ === index ? (

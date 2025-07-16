@@ -22,9 +22,12 @@ const Page = () => {
 
 
         {/* Component Sections */}
-        <div className="space-y-8">
+        <div className="space-y-8 border-radius-2xl">
+
           <Policy />
+
           <Poster />
+
           <HelplineNumbers />
         </div>
 

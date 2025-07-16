@@ -21,6 +21,7 @@ const AntiRaggingPledge = () => {
     "Computer Science and Engineering",
     "Electrical Engineering",
     "Mechanical Engineering",
+        "Computational Engineering",
     "Civil Engineering",
     "Chemical Engineering",
     "Biomedical Engineering",
@@ -34,7 +35,7 @@ const AntiRaggingPledge = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white py-4 sm:py-8 px-2 sm:px-0">
+    <div className="min-h-screen bg-gray-100 py-4 sm:py-8 px-2 sm:px-0">
       <div className="container mx-auto px-2 sm:px-4 max-w-4xl">
         {/* Header */}
         <div className="text-center mb-6 sm:mb-9">
@@ -45,9 +46,9 @@ const AntiRaggingPledge = () => {
         </div>
 
         {!pledgeSubmitted ? (
-          <div className="bg-white rounded-lg sm:rounded-xl shadow-md sm:shadow-lg p-4 sm:p-8 border border-[#e0e0e0]">
+          <div className="bg-gray-100 rounded-lg sm:rounded-xl shadow-md sm:shadow-lg p-4 sm:p-8 border border-[#e0e0e0]">
             {/* Important Notice */}
-            <div className="bg-[#FFF5F0] border-l-4 border-[#FC5407] p-4 sm:p-6 mb-6 sm:mb-8 rounded-lg">
+            <div className="bg-gray border-l-4 border-[#FC5407] p-4 sm:p-6 mb-6 sm:mb-8 rounded-lg">
               <div className="flex items-start">
                 <AlertCircle className="text-[#FC5407] mr-2 sm:mr-3 mt-0.5 sm:mt-1" size={20} />
                 <div>
@@ -122,7 +123,7 @@ const AntiRaggingPledge = () => {
               </div>
 
               {/* Pledge Content */}
-              <div className="bg-[#f8f8f8] p-4 sm:p-6 rounded-md sm:rounded-lg border-2 border-[#e0e0e0] mt-6 sm:mt-8">
+              <div className="bg-gray-100 p-4 sm:p-6 rounded-md sm:rounded-lg border-2 border-[#e0e0e0] mt-6 sm:mt-8">
                 <h3 className="font-bold text-black mb-2 sm:mb-4 text-base sm:text-lg">Anti-Ragging Pledge:</h3>
                 <div className="text-xs sm:text-sm text-black space-y-2 sm:space-y-3">
                   <p>I hereby undertake that:</p>
@@ -160,7 +161,7 @@ const AntiRaggingPledge = () => {
                 <button
                   onClick={handlePledgeSubmit}
                   disabled={!studentName || !rollNumber || !department || !phoneNumber || !email || !pledgeAccepted}
-                  className="bg-[#FC5407] text-white px-6 sm:px-8 py-2 sm:py-3 rounded-md sm:rounded-lg hover:bg-[#E04A06] transition-colors disabled:bg-[#cccccc] disabled:cursor-not-allowed font-medium text-sm sm:text-base"
+                  className="bg-gray-100 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-md sm:rounded-lg hover:bg-[#E04A06] transition-colors disabled:bg-[#cccccc] disabled:cursor-not-allowed font-medium text-sm sm:text-base"
                 >
                   Submit Anti-Ragging Pledge
                 </button>
@@ -169,13 +170,13 @@ const AntiRaggingPledge = () => {
           </div>
         ) : (
           /* Success Message */
-          <div className="bg-white rounded-lg sm:rounded-xl shadow-md sm:shadow-lg p-4 sm:p-8 text-center border border-[#e0e0e0]">
+          <div className="bg-gray-100 rounded-lg sm:rounded-xl shadow-md sm:shadow-lg p-4 sm:p-8 text-center border border-[#e0e0e0]">
             <div className="mb-4 sm:mb-6">
               <CheckCircle className="text-[#4CAF50] mx-auto mb-2 sm:mb-4" size={48} />
               <h2 className="text-xl sm:text-2xl font-bold text-[#FC5407]">Pledge Submitted Successfully!</h2>
             </div>
 
-            <div className="bg-[#f0fff1] border border-[#c8e6c9] rounded-md sm:rounded-lg p-4 sm:p-6 mb-4 sm:mb-6">
+            <div className="bg-gray-100 border border-[#c8e6c9] rounded-md sm:rounded-lg p-4 sm:p-6 mb-4 sm:mb-6">
               <h3 className="font-semibold text-[#2E7D32] mb-1 sm:mb-2">What's Next?</h3>
               <ul className="text-[#2E7D32] text-xs sm:text-sm space-y-1">
                 <li>• You will receive a confirmation email within 24 hours</li>
@@ -190,7 +191,7 @@ const AntiRaggingPledge = () => {
               <p className="mb-2 sm:mb-4"><strong>Submitted on:</strong> {new Date().toLocaleDateString()}</p>
             </div>
 
-            <div className="bg-[#FFF5F0] border border-[#F58A42] rounded-md sm:rounded-lg p-3 sm:p-4 mt-4">
+            <div className="bg-gray-100 border border-[#F58A42] rounded-md sm:rounded-lg p-3 sm:p-4 mt-4">
               <p className="text-[#FC5407] font-medium text-sm sm:text-base">Emergency Contact</p>
               <p className="text-black text-xs sm:text-sm">Anti-Ragging Helpline: 1800-180-5522 (24x7)</p>
               <p className="text-black text-xs sm:text-sm">Email: anti-ragging@iith.ac.in</p>

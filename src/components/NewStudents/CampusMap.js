@@ -3,7 +3,7 @@ import { MapPin } from 'lucide-react';
 
 const CampusMap = () => {
   return (
-    <section className="bg-white rounded-lg shadow-md p-8 mb-8">
+    <section className="bg-gray-100 rounded-lg shadow-md p-8 mb-8">
       <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
         <MapPin className="mr-3 text-blue-600" />
         Campus Map

@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 export default function AntiRaggingPolicy() {
   return (
-    <div className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-100 border-radius-lg py-12 px-4 sm:px-6 lg:px-8">
       <Head>
         <title>Anti-Ragging Policy | IIT Hyderabad</title>
         <meta name="description" content="Official anti-ragging policy of IIT Hyderabad" />

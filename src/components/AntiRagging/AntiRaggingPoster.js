@@ -5,9 +5,9 @@ const Poster = () => {
   <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center p-4">
 
 
-      <main className="w-full max-w-4xl">
+      <main className="w-full max-w-4xl ">
         {/* Poster Container */}
-        <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+        <div className="bg-white rounded-xl shadow-lg border-radius-lg  overflow-hidden border border-gray-200">
 
           {/* Poster Header */}
           <div className="bg-gradient-to-r from-gray-800 to-black text-white py-8 px-6 text-center">
