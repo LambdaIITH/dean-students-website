@@ -30,22 +30,12 @@ export default function NavBar() {
     {
       label: "New Students",
       id: "new-students",
-      children: [
-        {
-          href: "/new-students/anti-ragging-pledge/",
-          label: "Anti-ragging Pledge",
-        },
-        { href: "/new-students/campus-map/", label: "Campus Map" },
-        { href: "/new-students/faqs/", label: "FAQs" },
-      ],
+
     },
     {
       label: "Anti-Ragging",
       id: "anti-ragging",
-      children: [
-        { href: "/anti-ragging", label: "Anti Ragging" },
-        // { href: "/new-students/faqs/", label: "FAQs" },
-      ],
+
     },
     {
       label: "Student Activities",
@@ -78,8 +68,8 @@ export default function NavBar() {
           label: "Faculty",
           external: true,
         },
-        { href: "/mental-well-being/fics/", label: "FICs (Sunshine)" },
-        { href: "/mental-well-being/counsellors/", label: "Counsellors" },
+        { href: "/mental-well-being", label: "FICs (Sunshine)" },
+        { href: "/mental-well-being", label: "Counsellors" },
       ],
     },
     {
@@ -132,17 +122,29 @@ export default function NavBar() {
             Home
           </Link>
 
-          {mobileLinks
-            .filter((item) => item.id)
-            .map(({ label, id, children }) => (
-              <Dropdown
-                key={id}
-                id={id}
-                title={label}
-                className={`${topLevel === id ? activeColor : defaultColor}`}
-                links={children}
-              />
-            ))}
+        {mobileLinks.map(({ label, id, href, children }) => {
+  const hasChildren = Array.isArray(children) && children.length > 0;
+  const isActive = topLevel === id || (href?.split("/")[1] || "") === topLevel;
+
+  return hasChildren ? (
+    <Dropdown
+      key={id}
+      id={id}
+      title={label}
+      className={`${isActive ? activeColor : defaultColor}`}
+      links={children}
+    />
+  ) : (
+    <Link
+      key={label}
+      href={href || "#"}
+      className={`${navItemStyle} ${isActive ? activeColor : defaultColor}`}
+    >
+      {label}
+    </Link>
+  );
+})}
+
 
           <Link
             href="/contact"
@@ -157,73 +159,79 @@ export default function NavBar() {
       {isOpen && (
         <div className="xl:hidden bg-white/95 backdrop-blur-md shadow-lg border-t border-gray-100 px-6 py-4 space-y-2">
           {mobileLinks.map(({ label, href, id, children }) => {
-            const isDropdown = !!id;
-            const isActive =
+            const hasChildren = Array.isArray(children) && children.length > 0;
+
+             const isActive =
               topLevel === id || topLevel === (href?.split("/")[1] || "");
 
-            if (!isDropdown) {
-              return (
-                <Link
-                  key={label}
-                  href={href}
-                  className={`block font-medium text-xs tracking-wide py-2 px-3 rounded-xl transition-all duration-200 ${isActive
-                      ? "text-[#f58a42] font-semibold"
-                      : "text-[#171e27] hover:bg-[#f58a42]/15 hover:text-[#9d0000]"
-                    }`}
-                >
-                  {label}
-                </Link>
-              );
-            }
+           if (!hasChildren) {
+  return (
+    <Link
+      key={label}
+      href={href || "#"}
+      className={`block font-medium text-xs tracking-wide py-2 px-3 rounded-xl transition-all duration-200 ${
+        isActive
+          ? "text-[#f58a42] font-semibold"
+          : "text-[#171e27] hover:bg-[#f58a42]/15 hover:text-[#9d0000]"
+      }`}
+    >
+      {label}
+    </Link>
+  );
+}
 
-            return (
-              <div key={id}>
-                <button
-                  onClick={() =>
-                    setOpenAccordion(openAccordion === id ? null : id)
-                  }
-                  className={`w-full flex justify-between items-center font-medium text-xs tracking-wide py-2 px-3 rounded-xl transition-all duration-200 ${isActive
-                      ? "text-[#f58a42]"
-                      : "text-[#171e27] hover:bg-[#f58a42]/15 hover:text-[#9d0000]"
-                    }`}
-                >
-                  {label}
-                  <ChevronDownIcon
-                    className={`h-4 w-4 ml-2 transform transition-transform duration-200 ${openAccordion === id ? "rotate-180" : ""
-                      }`}
-                  />
-                </button>
+           return (
+  <div key={id}>
+    <button
+      onClick={() =>
+        setOpenAccordion(openAccordion === id ? null : id)
+      }
+      className={`w-full flex justify-between items-center font-medium text-xs tracking-wide py-2 px-3 rounded-xl transition-all duration-200 ${
+        isActive
+          ? "text-[#f58a42]"
+          : "text-[#171e27] hover:bg-[#f58a42]/15 hover:text-[#9d0000]"
+      }`}
+    >
+      {label}
+      <ChevronDownIcon
+        className={`h-4 w-4 ml-2 transform transition-transform duration-200 ${
+          openAccordion === id ? "rotate-180" : ""
+        }`}
+      />
+    </button>
 
-                {openAccordion === id && (
-                  <div className="ml-4 mt-1 space-y-1">
-                    {children.map(({ label, href, external }) =>
-                      external ? (
-                        <a
-                          key={label}
-                          href={href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block text-xs text-[#171e27] hover:text-[#f58a42] px-3 py-1 rounded-md"
-                        >
-                          {label}
-                        </a>
-                      ) : (
-                        <Link
-                          key={label}
-                          href={href}
-                          className={`block text-xs px-3 py-1 rounded-md ${pathname === href
-                              ? "text-[#f58a42] font-semibold"
-                              : "text-[#171e27] hover:text-[#f58a42]"
-                            }`}
-                        >
-                          {label}
-                        </Link>
-                      )
-                    )}
-                  </div>
-                )}
-              </div>
-            );
+    {openAccordion === id && (
+      <div className="ml-4 mt-1 space-y-1">
+        {children.map(({ label, href, external }) =>
+          external ? (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-xs text-[#171e27] hover:text-[#f58a42] px-3 py-1 rounded-md"
+            >
+              {label}
+            </a>
+          ) : (
+            <Link
+              key={label}
+              href={href}
+              className={`block text-xs px-3 py-1 rounded-md ${
+                pathname === href
+                  ? "text-[#f58a42] font-semibold"
+                  : "text-[#171e27] hover:text-[#f58a42]"
+              }`}
+            >
+              {label}
+            </Link>
+          )
+        )}
+      </div>
+    )}
+  </div>
+);
+
           })}
         </div>
       )}
