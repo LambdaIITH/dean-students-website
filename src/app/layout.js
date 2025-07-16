@@ -3,7 +3,7 @@ import React from 'react';
 import './globals.css'; // Import global styles
 
 // Import Navbar and Footer components
-import Navbar from "../components/common/Navbar/NavBar.js"; // Your unified Navbar
+import Navbar from "../components/common/NavBar/NavBar.js"; // Your unified Navbar
 import Footer from "../components/common/Footer.js"; // Your colleague's Footer
 
 export default function RootLayout({ children }) {
