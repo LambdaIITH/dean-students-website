@@ -11,7 +11,7 @@ export default function Dropdown({
   openAccordion,
   setOpenAccordion,
   pathname,
-  onChildClick
+  onChildClick,
 }) {
   const isOpen = openAccordion === id;
 
