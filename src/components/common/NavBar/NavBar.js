@@ -9,41 +9,62 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const navItemStyle =
+    "text-[#d1402a] font-medium tracking-wide text-xs px-4 py-2 rounded-xl hover:bg-[#f58a42]/15 hover:text-[#9d0000] transition-all duration-200 inline-flex items-center";
+
+  const mobileLinks = [
+    { label: "Home", href: "/" },
+    { label: "New Students", href: "/new-students" },
+    { label: "Anti-Ragging", href: "/anti-ragging" },
+    { label: "Student Activities", href: "/student-activities" },
+    { label: "Sports", href: "/sports" },
+    { label: "Sunshine", href: "/mental-well-being" },
+    { label: "Hostels", href: "/hostels" },
+    { label: "Contact", href: "/contact" },
+  ];
+
   return (
-    <header className="fixed top-0 left-0 z-50 w-full bg-white shadow-sm">
-      <div className="flex items-center justify-between px-6 py-2 container mx-auto text-sm">
-        {/* Logo */}
-        <Link href="/">
-          <Image
-            src="/horzlogolong.png"
-            alt="IITH Logo"
-            width={245}
-            height={70}
-            className="object-contain"
-          />
+    <header className="fixed top-0 left-0 z-50 w-full bg-white/95 backdrop-blur-md shadow-xl border-b border-gray-200">
+      <div className="flex items-center justify-between px-6 py-4 container mx-auto text-[0.8rem]">
+        {/* Logo with centered shadow */}
+        <Link
+          href="/"
+          className="flex-shrink-0 transition-transform hover:scale-[1.1]"
+        >
+          <div className="p-1.5 rounded-xl">
+            <Image
+              src="/assets/horzlogolong.png"
+              alt="IITH Logo"
+              width={220}
+              height={65}
+              className="object-contain h-12 w-auto"
+              priority
+            />
+          </div>
         </Link>
 
-        {/* Hamburger Button (Mobile only) */}
+        {/* Mobile Menu Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="xl:hidden focus:outline-none"
+          className="xl:hidden focus:outline-none p-2 rounded-lg hover:bg-[#f58a42]/10 transition duration-200"
         >
           {isOpen ? (
-            <XMarkIcon className="h-6 w-6 text-gray-700" />
+            <XMarkIcon className="h-6 w-6 text-[#171e27]" />
           ) : (
-            <Bars3Icon className="h-6 w-6 text-gray-700" />
+            <Bars3Icon className="h-6 w-6 text-[#171e27]" />
           )}
         </button>
 
-        {/* Navigation */}
-        <nav className="hidden xl:flex space-x-0">
-          <Link href="/" className="text-[#d1402a] font-medium px-2 py-1">
+        {/* Desktop Navigation */}
+        <nav className="hidden xl:flex items-center space-x-1">
+          <Link href="/" className={navItemStyle}>
             HOME
           </Link>
 
           <Dropdown
             id="new-students"
             title="NEW STUDENTS"
+            className={navItemStyle}
             links={[
               {
                 href: "/new-students/anti-ragging-pledge/",
@@ -54,21 +75,24 @@ export default function NavBar() {
             ]}
           />
 
-          <Dropdown id="anti-ragging" title="ANTI RAGGING" links={[]} />
+          <Dropdown
+            id="anti-ragging"
+            title="ANTI RAGGING"
+            links={[]}
+            className={navItemStyle}
+          />
 
           <Dropdown
             id="student-activities"
             title="STUDENT ACTIVITIES"
+            className={navItemStyle}
             links={[
               {
                 href: "https://gymkhana.iith.ac.in/",
                 label: "Gymkhana Council",
                 external: true,
               },
-              {
-                href: "/student-activities/clubs/",
-                label: "Clubs",
-              },
+              { href: "/student-activities/clubs/", label: "Clubs" },
               { href: "/student-activities/fics/", label: "FICs" },
             ]}
           />
@@ -76,6 +100,7 @@ export default function NavBar() {
           <Dropdown
             id="sports"
             title="SPORTS"
+            className={navItemStyle}
             links={[
               { href: "/sports/facilities/", label: "Sports Facilities" },
               { href: "/sports/nso/", label: "NSO" },
@@ -86,6 +111,7 @@ export default function NavBar() {
           <Dropdown
             id="mental-well-being"
             title="MENTAL WELL-BEING"
+            className={navItemStyle}
             links={[
               {
                 href: "https://sunshine.iith.ac.in/",
@@ -100,48 +126,31 @@ export default function NavBar() {
           <Dropdown
             id="hostels"
             title="HOSTELS"
+            className={navItemStyle}
             links={[
               { href: "/hostels/hostel-info/", label: "Hostel Information" },
               { href: "/hostels/hcu/", label: "HCU" },
             ]}
           />
 
-          <Link
-            href="/contact"
-            className="text-[#d1402a] font-medium px-2 py-1"
-          >
+          <Link href="/contact" className={navItemStyle}>
             CONTACT
           </Link>
         </nav>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="xl:hidden bg-white shadow-sm px-6 py-4 space-y-2">
-          <Link href="/" className="block text-[#333333] font-medium">
-            Home
-          </Link>
-          <Link href="/" className="block text-[#333333] font-medium">
-            New Students
-          </Link>
-          <Link href="/" className="block text-[#333333] font-medium">
-            Anti-Ragging
-          </Link>
-          <Link href="/" className="block text-[#333333] font-medium">
-            Student Activities
-          </Link>
-          <Link href="/" className="block text-[#333333] font-medium">
-            Sports
-          </Link>
-          <Link href="/" className="block text-[#333333] font-medium">
-            Sunshine
-          </Link>
-          <Link href="/" className="block text-[#333333] font-medium">
-            Hostels
-          </Link>
-          <Link href="/" className="block text-[#333333] font-medium">
-            Contact
-          </Link>
+        <div className="xl:hidden bg-white/95 backdrop-blur-md shadow-lg border-t border-gray-100 px-6 py-4 space-y-2">
+          {mobileLinks.map(({ label, href }) => (
+            <Link
+              key={label}
+              href={href}
+              className="block text-[#171e27] font-medium text-xs tracking-wide py-2 px-3 rounded-xl hover:bg-[#f58a42]/15 hover:text-[#9d0000] transition-all duration-200"
+            >
+              {label}
+            </Link>
+          ))}
         </div>
       )}
     </header>

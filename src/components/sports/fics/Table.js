@@ -1,44 +1,47 @@
+import { EnvelopeIcon, UserIcon } from "@heroicons/react/24/outline";
+
 export default function Table() {
   const staff = [
     { name: "Dr. John Doe", email: "johndoe@iith.ac.in" },
     { name: "Ms. Jane Doe", email: "janedoe@iith.ac.in" },
     { name: "Mr. John Doe", email: "johndoe@iith.ac.in" },
     { name: "Dr. Jane Doe", email: "janedoe@iith.ac.in" },
-    { name: "Dr. Jane Doe", email: "janedoe@iith.ac.in" },
-    { name: "Dr. Jane Doe", email: "janedoe@iith.ac.in" },
-    { name: "Dr. Jane Doe", email: "janedoe@iith.ac.in" },
-    { name: "Dr. Jane Doe", email: "janedoe@iith.ac.in" },
-    { name: "Dr. Jane Doe", email: "janedoe@iith.ac.in" },
-    { name: "Dr. Jane Doe", email: "janedoe@iith.ac.in" },
-    { name: "Dr. Jane Doe", email: "janedoe@iith.ac.in" },
-    { name: "Dr. Jane Doe", email: "janedoe@iith.ac.in" },
-    { name: "Dr. Jane Doe", email: "janedoe@iith.ac.in" },
-    { name: "Dr. Jane Doe", email: "janedoe@iith.ac.in" },
-    { name: "Dr. Jane Doe", email: "janedoe@iith.ac.in" },
   ];
 
   return (
-    <div className="overflow-x-auto px-4 py-6">
-      <div className="max-w-[95vw] md:max-w-[800px] mx-auto">
-        <table className="w-full table-fixed bg-white border border-[#bfbdbd]">
-          <thead className="bg-white text-black">
+    <div className="overflow-x-auto px-4">
+      <div className="max-w-[95vw] md:max-w-3xl mx-auto rounded-xl overflow-hidden border border-[#ccc]">
+        <table className="w-full text-sm text-left text-[#171e27]">
+          <thead className="bg-white">
             <tr>
-              <th className="w-1/2 sm:w-[250px] px-4 py-2 text-left border border-[#bfbdbd]">
+              <th className="px-5 py-3 font-semibold border-b border-[#ccc]">
                 Name
               </th>
-              <th className="w-1/2 sm:w-[270px] px-4 py-2 text-left border border-[#bfbdbd]">
+              <th className="px-5 py-3 font-semibold border-b border-[#ccc]">
                 Email
               </th>
             </tr>
           </thead>
           <tbody>
             {staff.map((person, i) => (
-              <tr key={i} className={i % 2 === 0 ? "bg-[#f0f0f0]" : "bg-white"}>
-                <td className="px-4 py-2 border border-[#bfbdbd]">
-                  {person.name}
+              <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-[#f5f5f5]"}>
+                <td className="px-5 py-3 border-b border-[#ddd] whitespace-nowrap">
+                  <div className="flex items-center gap-2">
+                    <UserIcon className="h-5 w-5 text-[#f58a42]" />
+                    <span>{person.name}</span>
+                  </div>
                 </td>
-                <td className="px-4 py-2 border border-[#bfbdbd]">
-                  {person.email}
+                <td className="px-5 py-3 border-b border-[#ddd] whitespace-nowrap">
+                  <div className="flex items-center gap-2">
+                    <EnvelopeIcon className="h-5 w-5 text-[#f58a42]" />
+                    <br />
+                    <a
+                      href={`mailto:${person.email}`}
+                      className="hover:text-black hover:scale-[1.07] transition-all duration-150 cursor-pointer"
+                    >
+                      {person.email}
+                    </a>
+                  </div>
                 </td>
               </tr>
             ))}
