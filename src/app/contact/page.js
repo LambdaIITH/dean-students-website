@@ -40,11 +40,26 @@ export default function ContactPage() {
     });
   };
 
+  // Dean Students Details
+  const deanDetails = {
+    name: 'Dr. Prasanth Kumar R.',
+    position: 'Professor, Dean Students',
+    image: 'https://iith.ac.in/assets/images/profiles/Prasanth_Kumar_R.jpg',
+    officeAddress: {
+      room: 'C-415',
+      block: 'Academic Block C',
+      fullAddress: 'Indian Institute of Technology Hyderabad, Kandi-502284, Sangareddy, Telangana, India',
+    },
+    email: 'rpkumar@mae.iith.ac.in',
+    officePhone: '(040) 2301 - 6652',
+    // Updated mapEmbedUrl to specifically search for Academic Block C
+    mapEmbedUrl: 'https://maps.google.com/maps?q=Academic%20Block%20C,%20IIT%20Hyderabad&t=&z=17&ie=UTF8&iwloc=&output=embed',
+  };
+
   return (
-    // Outer div: Overall page content area background is white.
-    <div className="min-h-screen flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-white">
-      {/* Inner div (form container): Removed shadow-xl class */}
-      <div className="max-w-2xl w-full bg-white rounded-lg p-8 space-y-6"> {/* shadow-xl removed */}
+    <div className="min-h-screen flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8 bg-white">
+      {/* Contact Form Section */}
+      <div className="max-w-2xl w-full bg-white rounded-lg p-8 space-y-6">
         <h1 className="text-4xl font-extrabold text-center text-iith-orange-dark mb-6">
           Contact Dean Students
         </h1>
@@ -183,6 +198,69 @@ export default function ContactPage() {
           </div>
         </form>
       </div>
+
+      {/* Dean Students Details Section */}
+      <div className="max-w-2xl w-full bg-white rounded-lg p-8 space-y-6 mt-12">
+        <h2 className="text-4xl font-extrabold text-center text-iith-orange-dark mb-6">
+          Dean Students Contact Details
+        </h2>
+        <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-6 sm:space-y-0 sm:space-x-8">
+          {/* Dean's Photo */}
+          <div className="flex-shrink-0">
+            <img
+              src={deanDetails.image}
+              alt={deanDetails.name}
+              className="w-32 h-32 rounded-full object-cover border-4 border-iith-orange-dark shadow-md"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = "https://placehold.co/128x128/F58A42/ffffff?text=Dean"; // Fallback placeholder
+              }}
+            />
+          </div>
+          {/* Dean's Info */}
+          <div className="flex-grow text-center sm:text-left space-y-2">
+            <h3 className="text-2xl font-bold text-gray-900">{deanDetails.name}</h3>
+            <p className="text-lg text-gray-700 font-medium">{deanDetails.position}</p>
+            <p className="text-gray-700">
+              <span className="font-semibold">Room:</span> {deanDetails.officeAddress.room}, {deanDetails.officeAddress.block}
+            </p>
+            <p className="text-gray-700">
+              <span className="font-semibold">Email:</span>{' '}
+              <a href={`mailto:${deanDetails.email}`} className="text-blue-600 hover:text-blue-800 underline">
+                {deanDetails.email}
+              </a>
+            </p>
+            <p className="text-gray-700">
+              <span className="font-semibold">Office Phone:</span>{' '}
+              <a href={`tel:${deanDetails.officePhone.replace(/\s/g, '').replace(/-/g, '')}`} className="text-blue-600 hover:text-blue-800 underline">
+                {deanDetails.officePhone}
+              </a>
+            </p>
+          </div>
+        </div>
+
+        {/* Location Map for Academic Block C */}
+        <div className="mt-8">
+          <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">Academic Block C Location</h3>
+          <div className="relative w-full" style={{ paddingBottom: '56.25%' /* 16:9 Aspect Ratio */ }}>
+            <iframe
+              src={deanDetails.mapEmbedUrl}
+              width="100%"
+              height="100%"
+              style={{ border: 0, position: 'absolute', top: 0, left: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="IIT Hyderabad Academic Block C Location"
+              className="rounded-lg shadow-md"
+            ></iframe>
+          </div>
+          <p className="text-center text-gray-600 text-sm mt-2">
+            {deanDetails.officeAddress.fullAddress}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
+
