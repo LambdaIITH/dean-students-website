@@ -62,9 +62,9 @@ export default function FacilitiesPage() {
 
   return (
     <div className="flex flex-col gap-2 py-5">
-      <div className="font-semibold px-4 text-[3rem] underline">
+      <h1 className="font-semibold px-4 text-[3rem] underline">
         Sports Facilities
-      </div>
+      </h1>
       {facilitiesList.map((facility) => {
         return (
           <Facility
