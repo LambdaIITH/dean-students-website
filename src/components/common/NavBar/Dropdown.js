@@ -1,38 +1,85 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
-export default function Dropdown({ id, title, links, className }) {
+export default function Dropdown({
+  id,
+  title,
+  links,
+  isActive = false,
+  openAccordion,
+  setOpenAccordion,
+  pathname,
+  onChildClick
+}) {
+  const isOpen = openAccordion === id;
+
+  const toggleAccordion = () => {
+    setOpenAccordion(isOpen ? null : id);
+  };
+
   return (
-    <div className="relative group h-full">
+    <div>
       <button
-        className={
-          className +
-          " flex items-center px-2 py-1 h-full text-[#171e27] font-medium hover:text-[#d1402a] hover:bg-[#f58a42]/10 rounded cursor-pointer transition-all duration-200"
-        }
+        onClick={toggleAccordion}
+        className={`w-full flex justify-between items-center font-medium text-xs tracking-wide py-2 px-3 rounded-xl transition-all duration-200 ${
+          isActive
+            ? "text-[#f58a42]"
+            : "text-[#171e27] hover:bg-[#f58a42]/15 hover:text-[#9d0000]"
+        }`}
+        aria-expanded={isOpen}
+        aria-controls={`dropdown-menu-${id}`}
+        id={`dropdown-button-${id}`}
       >
-        <span>{title}</span>
-        <ChevronDownIcon className="w-3 h-3 ml-1 transform transition-transform duration-200 group-hover:rotate-180" />
+        {title}
+        <ChevronDownIcon
+          className={`h-4 w-4 ml-2 transform transition-transform duration-200 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+          aria-hidden="true"
+        />
       </button>
 
-      {/* Dropdown */}
-      <div className="absolute left-0 z-20 min-w-56 w-max bg-white/95 backdrop-blur-sm rounded-lg shadow-lg border border-gray-100 opacity-0 invisible transform translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 overflow-hidden">
-        <div className="py-2">
-          {links.map((link, idx) => (
-            <Link
-              key={idx}
-              href={link.href}
-              target={link.external ? "_blank" : "_self"}
-              className={`block px-4 py-2 text-sm transition-all duration-200 hover:bg-[#f58a42]/10 hover:text-[#9d0000] whitespace-nowrap ${
-                link.red ? "text-[#d1402a]" : "text-[#171e27]"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+      {isOpen && (
+        <div
+          id={`dropdown-menu-${id}`}
+          className="ml-4 mt-1 space-y-1"
+          role="menu"
+          aria-labelledby={`dropdown-button-${id}`}
+        >
+          {links.map(({ label, href, external }) =>
+            external ? (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-xs text-[#171e27] hover:text-[#f58a42] px-3 py-1 rounded-md"
+                role="menuitem"
+                onClick={onChildClick}
+              >
+                {label}
+              </a>
+            ) : (
+              <Link
+                key={label}
+                href={href}
+                className={`block text-xs px-3 py-1 rounded-md ${
+                  pathname === href
+                    ? "text-[#f58a42] font-semibold"
+                    : "text-[#171e27] hover:text-[#f58a42]"
+                }`}
+                role="menuitem"
+                onClick={onChildClick}
+                aria-current={pathname === href ? "page" : undefined}
+              >
+                {label}
+              </Link>
+            )
+          )}
         </div>
-      </div>
+      )}
     </div>
   );
 }
