@@ -97,7 +97,7 @@ const HelplineNumbers = () => {
           <div className=" border-l-4 border-red-600 p-4 rounded-r-lg">
             <h4 className="font-bold text-lg mb-2 text-black">Remember</h4>
             <p className="text-black text-sm">
-              "Your safety is our priority. Don't hesitate to reach out for help."
+             &quot;All helpline numbers are operational 24/7. In case of emergency, contact campus security immediately.&quot;
             </p>
           </div>
 

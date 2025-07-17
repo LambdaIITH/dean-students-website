@@ -177,7 +177,7 @@ const AntiRaggingPledge = () => {
             </div>
 
             <div className="bg-gray-100 border border-[#c8e6c9] rounded-md sm:rounded-lg p-4 sm:p-6 mb-4 sm:mb-6">
-              <h3 className="font-semibold text-[#2E7D32] mb-1 sm:mb-2">What's Next?</h3>
+              <h3 className="font-semibold text-[#2E7D32] mb-1 sm:mb-2">What&apos;s Next?</h3>
               <ul className="text-[#2E7D32] text-xs sm:text-sm space-y-1">
                 <li>• You will receive a confirmation email within 24 hours</li>
                 <li>• Keep a copy of this confirmation for your records</li>

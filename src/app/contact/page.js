@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -207,15 +208,17 @@ export default function ContactPage() {
         <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-6 sm:space-y-0 sm:space-x-8">
           {/* Dean's Photo */}
           <div className="flex-shrink-0">
-            <img
-              src={deanDetails.image}
-              alt={deanDetails.name}
-              className="w-32 h-32 rounded-full object-cover border-4 border-iith-orange-dark shadow-md"
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = "https://placehold.co/128x128/F58A42/ffffff?text=Dean"; // Fallback placeholder
-              }}
-            />
+           <Image
+    src={deanDetails.image}
+    alt={deanDetails.name}
+    width={128}
+    height={128}
+    className="rounded-full object-cover border-4 border-iith-orange-dark shadow-md"
+    onError={(e) => {
+      e.target.onerror = null;
+      e.target.src = "https://placehold.co/128x128/F58A42/ffffff?text=Dean";
+    }}
+  />
           </div>
           {/* Dean's Info */}
           <div className="flex-grow text-center sm:text-left space-y-2">
