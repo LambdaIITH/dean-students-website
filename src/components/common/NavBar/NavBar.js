@@ -51,7 +51,7 @@ export default function NavBar() {
         ],
       },
       {
-        label: "Sunshine",
+        label: "Mental Wellbeing",
         href: "/student-wellbeing",
         id: "student-wellbeing",
       },
